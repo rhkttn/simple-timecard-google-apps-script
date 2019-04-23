@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= HtmlService.createHtmlOutputFromFile('Stylesheet').getContent(); ?>
+  </head>
+  <body>
+    <h1>タイムカード</h1>
+    <div class="block">
+      <button id="going_to_work">出勤</button>
+      <button id="leaving_to_work">退勤</button>
+    </div>
+    <div class="block">
+      <div id="message"></div>
+    </div>
+    <?!= HtmlService.createHtmlOutputFromFile('JavaScript').getContent(); ?>
+  </body>
+</html>
+
+
