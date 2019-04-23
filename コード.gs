@@ -1,7 +1,7 @@
 function doGet(e) {
   return HtmlService.createTemplateFromFile('Index')
     .evaluate()
-    .setTitle('タイムカード')
+    .setTitle('シンプルタイムカード')
     .setSandboxMode(HtmlService.SandboxMode.IFRAME);
 }
 
@@ -9,21 +9,21 @@ function doGet(e) {
  * シートIDをユーザープロパティにセット
  */
 function setSheetId_(sheetId) {
-  PropertiesService.getUserProperties().setProperty('sheet_id', sheetId);
+  PropertiesService.getUserProperties().setProperty('SIMPLE_TIMECARD_SHEET_ID', sheetId);
 }
 
 /**
  * ユーザープロパティに保存したシートID取得
  */
 function getSheetId_() {
-  return PropertiesService.getUserProperties().getProperty('sheet_id');
+  return PropertiesService.getUserProperties().getProperty('SIMPLE_TIMECARD_SHEET_ID');
 }
 
 /**
  * スプレッドシート作成
  */
 function createSpreadsheet_() {
-  var newSpreadSheet = SpreadsheetApp.create('勤務情報');
+  var newSpreadSheet = SpreadsheetApp.create('シンプルタイムカード');
   var sheetId = newSpreadSheet.getId();
   if(sheetId) {
     setSheetId_(sheetId);
@@ -106,7 +106,6 @@ function setAttendance(type) {
 function testFunc() {
   try{
     Logger.log(setAttendance('going_to_work'));
-    //Logger.log(setAttendance('leaving_to_work'));
   } catch (e) {
     Logger.log(e);
   }
